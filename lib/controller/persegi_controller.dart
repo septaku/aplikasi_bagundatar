@@ -1,17 +1,21 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class PersegiController extends GetxController{
-  int sisi =0;
-  final hasil = "".obs;
+class PersegiController extends GetxController {
+  double sisi = 0;
 
-  void hitungLuas(){
-    int hitung = sisi*sisi;
-    hasil.value = "Hasil Perhitungan luas dari $sisi x $sisi = $hitung";
+  final hasil = "".obs;
+  final color = Colors.black.obs;
+
+  void hitungLuas() {
+    double luas = sisi * sisi;
+    hasil.value = "Hasil Perhitungan luas persegi: $luas";
+    color.value = Colors.white;
   }
 
-  void hitungKeliling(){
-    int hitung = sisi*4;
-    hasil.value = "Hasil Perhitungan krliling dari $sisi = $hitung";
+  void hitungKeliling() {
+    double keliling = 4 * sisi;
+    hasil.value = "Hasil Perhitungan keliling persegi: $keliling";
+    color.value = Colors.white;
   }
 }
-

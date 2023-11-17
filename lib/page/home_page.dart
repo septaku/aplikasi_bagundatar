@@ -1,4 +1,7 @@
+import 'package:aplikasi_bangundatar/page/lingkaran_page.dart';
 import 'package:aplikasi_bangundatar/page/persegi_page.dart';
+import 'package:aplikasi_bangundatar/page/persegipanjang_page.dart';
+import 'package:aplikasi_bangundatar/page/segitiga_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,18 +23,36 @@ class HomePage extends StatelessWidget {
           children: [
             Expanded(child: InkWell(
               onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>PersegiPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>PersegiPage()));
               },
-            child: CostomMenu (imageAsset: "assets/persegi.jpg",
-                title: "Persegi"),
+              child: CostomMenu (imageAsset: "assets/persegi.jpg",
+                  title: "Persegi"),
             )),
-            Expanded(child: CostomMenu (imageAsset: "assets/segitiga.png", title: "Segitiga")),
+            Expanded(child: InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>SegitigaPage()));
+              },
+              child: CostomMenu (imageAsset: "assets/segitiga.png",
+                  title: "Segitiga"),
+            )),
           ],
         ),
         Row(
           children: [
-            Expanded(child: CostomMenu (imageAsset: "assets/lingkaran.png", title: "Lingkaran")),
-            Expanded(child: CostomMenu (imageAsset: "assets/persegi_panjang.jpg", title: "Persegi Panjang")),
+            Expanded(child: InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>LingkaranPage()));
+              },
+              child: CostomMenu (imageAsset: "assets/lingkaran.png",
+                  title: "Lingkaran"),
+            )),
+            Expanded(child: InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>PersegiPanjangPage()));
+              },
+              child: CostomMenu (imageAsset: "assets/persegi_panjang.jpg",
+                  title: "Persegi Panjang"),
+            )),
           ],
         ),
       ],

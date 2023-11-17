@@ -1,37 +1,37 @@
-import 'package:aplikasi_bangundatar/controller/persegi_controller.dart';
+import 'package:aplikasi_bangundatar/controller/lingkaran_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class PersegiPage extends StatelessWidget {
-  PersegiPage({Key? key}) : super(key: key);
+class LingkaranPage extends StatelessWidget {
+  LingkaranPage({Key? key}) : super(key: key);
 
-  final PersegiController _persegiController = Get.put(PersegiController());
+  final LingkaranController _lingkaranController = Get.put(LingkaranController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Persegi Panjang Page"),
+        title: const Text("Lingkaran Page"),
       ),
       body: Column(
         children: [
-          Image.asset("assets/persegi_panjang.jpg", height: 100),
+          Image.asset("assets/lingkaran.png", height: 100),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "Persegi Panjang",
+              "Lingkaran",
               style: TextStyle(color: Colors.black),
             ),
           ),
           Container(
             decoration: BoxDecoration(
-              color: Colors.green.shade300,
+              color: Colors.blue.shade300,
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             margin: const EdgeInsets.all(8.0),
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "Persegi panjang adalah bangun datar dua dimensi yang dibentuk oleh dua pasang sisi yang memiliki panjang yang sama dan empat sudut yang semuanya siku-siku. Persegi panjang memiliki sifat-sifat khusus seperti luas dan keliling yang dapat dihitung menggunakan rumus tertentu.",
+              "Lingkaran adalah bangun datar dua dimensi yang dibentuk oleh himpunan semua titik yang equidistant dari titik tertentu yang disebut pusat lingkaran. Lingkaran memiliki sifat-sifat khusus seperti luas dan keliling yang dapat dihitung menggunakan rumus tertentu.",
               style: TextStyle(color: Colors.white),
             ),
           ),
@@ -39,7 +39,7 @@ class PersegiPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.green.shade300,
+                color: Colors.blue.shade300,
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               margin: const EdgeInsets.all(8.0),
@@ -51,14 +51,14 @@ class PersegiPage extends StatelessWidget {
                       Expanded(
                         child: TextFormField(
                           onChanged: (value) {
-                            _persegiController.sisi = double.parse(value);
+                            _lingkaranController.jariJari = double.parse(value);
                           },
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             fillColor: Colors.white,
                             filled: true,
-                            labelText: "Sisi",
-                            hintText: "Masukkan Sisi",
+                            labelText: "Jari-jari",
+                            hintText: "Masukkan Jari-jari",
                             hintStyle: TextStyle(color: Colors.grey.shade300),
                             contentPadding:
                             EdgeInsets.symmetric(vertical: 4, horizontal: 8),
@@ -86,11 +86,10 @@ class PersegiPage extends StatelessWidget {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          _persegiController.hitungLuas();
+                          _lingkaranController.hitungLuas();
                         },
                         style: ButtonStyle(
-                          backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.green),
+                          backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
                         ),
                         child: Text(
                           "Hitung Luas",
@@ -100,11 +99,10 @@ class PersegiPage extends StatelessWidget {
                       SizedBox(width: 8),
                       ElevatedButton(
                         onPressed: () {
-                          _persegiController.hitungKeliling();
+                          _lingkaranController.hitungKeliling();
                         },
                         style: ButtonStyle(
-                          backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.orange),
+                          backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
                         ),
                         child: Text(
                           "Hitung Keliling",
@@ -128,8 +126,8 @@ class PersegiPage extends StatelessWidget {
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.all(Radius.circular(20))
+                color: Colors.blue,
+                borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -137,13 +135,13 @@ class PersegiPage extends StatelessWidget {
                 children: [
                   Text("Hasil :"),
                   Text(
-                    _persegiController.hasil.value,
+                    _lingkaranController.hasil.value,
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: _persegiController.color.value),
+                        color: _lingkaranController.color.value),
                   ),
                   Text("======================="),
-                  Text("Thanks You"),
+                  Text("Terima Kasih"),
                 ],
               ),
             ),
